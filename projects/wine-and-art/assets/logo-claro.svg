@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 100" role="img" aria-labelledby="t"><title id="t">Wine &amp; Art</title>
+<g transform="translate(0 0)">
+<path d="M78 10 L58 56" stroke="#E0C27A" stroke-width="5" stroke-linecap="round" fill="none"/>
+<path d="M56 52 L62 58 L53 66 C49 68 46 65 47 61 Z" fill="#E0C27A"/>
+<path d="M28 14H68C68 42 60 60 48 60C36 60 28 42 28 14Z" fill="none" stroke="#FAF4EC" stroke-width="3.5" stroke-linejoin="round"/>
+<path d="M30.5 30Q39 25 48 30T65.5 30C64.5 46 58 57.5 48 57.5C38 57.5 31.5 46 30.5 30Z" fill="#B3202F"/>
+<path d="M48 60V86M34 90Q48 83 62 90" stroke="#FAF4EC" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+<path d="M82 62C82 62 75 71 75 76A7 7 0 0 0 89 76C89 71 82 62 82 62Z" fill="#E8B4B8"/>
+</g>
+<text x="104" y="58" font-family="'Playfair Display',Georgia,'Times New Roman',serif" font-size="42" font-weight="700" fill="#FAF4EC">Wine <tspan fill="#E0C27A" font-style="italic" font-weight="500">&amp;</tspan> Art</text>
+<text x="106" y="80" font-family="'Lato','Helvetica Neue',Arial,sans-serif" font-size="11" letter-spacing="2.6" textLength="262" lengthAdjust="spacing" fill="#E8B4B8">PINTURA · VINO · PUERTO RICO</text>
+</svg>

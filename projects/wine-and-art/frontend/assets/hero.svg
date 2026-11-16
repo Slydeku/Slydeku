@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Caballete, lienzo y copas de vino con manchas de pintura"><title>Wine and Art</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FAF4EC"/><stop offset=".45" stop-color="#F3E3DD"/><stop offset=".75" stop-color="#8B1E2D"/><stop offset="1" stop-color="#4A0E1C"/></linearGradient>
+<linearGradient id="cv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6D5D3"/><stop offset=".5" stop-color="#C94A5A"/><stop offset="1" stop-color="#6B1A2E"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<g opacity=".35"><circle cx="150" cy="780" r="190" fill="#E8B4B8"/><circle cx="420" cy="120" r="120" fill="#F0CFCB"/></g>
+<path d="M0 760C260 720 420 800 700 770S1100 730 1600 780V900H0Z" fill="#6B1A2E" opacity=".12"/>
+<!-- manchas -->
+<g>
+<path d="M880 120C940 70 1040 90 1050 160S1000 260 930 240 830 170 880 120Z" fill="#B3202F" opacity=".55"/>
+<circle cx="1480" cy="150" r="60" fill="#E8B4B8" opacity=".35"/>
+<path d="M1380 700C1430 660 1520 690 1530 750S1470 840 1410 820 1340 735 1380 700Z" fill="#B3202F" opacity=".6"/>
+<circle cx="840" cy="640" r="18" fill="#C9A24B" opacity=".8"/><circle cx="1540" cy="430" r="12" fill="#C9A24B" opacity=".8"/><circle cx="1000" cy="800" r="9" fill="#E8B4B8"/>
+</g>
+<!-- caballete -->
+<g stroke="#2B1519" stroke-width="14" stroke-linecap="round" fill="none"><path d="M1060 780 1180 250"/><path d="M1340 780 1220 250"/><path d="M1200 220V620" stroke-width="10"/></g>
+<rect x="1010" y="640" width="380" height="18" rx="6" fill="#4A0E1C"/>
+<g transform="rotate(-3 1200 400)"><rect x="1000" y="200" width="400" height="420" rx="6" fill="#FAF4EC"/>
+<rect x="1018" y="218" width="364" height="384" fill="url(#cv)"/>
+<path d="M1018 480C1100 420 1160 520 1240 460S1340 420 1382 450V602H1018Z" fill="#4A0E1C" opacity=".75"/>
+<circle cx="1290" cy="320" r="46" fill="#E0C27A"/>
+<path d="M1018 540C1100 500 1180 560 1260 520S1340 510 1382 530V602H1018Z" fill="#8B1E2D"/></g>
+<!-- copas -->
+<g>
+<g transform="translate(790 560)"><path d="M0 0H110C110 90 85 140 55 140S0 90 0 0Z" fill="#FAF4EC" fill-opacity=".25" stroke="#FAF4EC" stroke-width="5" stroke-linejoin="round"/><path d="M4 55Q30 45 55 55T106 55C104 100 84 135 55 135S6 100 4 55Z" fill="#B3202F"/><path d="M55 140V250M10 258Q55 238 100 258" stroke="#FAF4EC" stroke-width="5" stroke-linecap="round" fill="none"/></g>
+<g transform="translate(940 640) scale(.8)"><path d="M0 0H110C110 90 85 140 55 140S0 90 0 0Z" fill="#FAF4EC" fill-opacity=".25" stroke="#FAF4EC" stroke-width="6" stroke-linejoin="round"/><path d="M4 70Q30 60 55 70T106 70C104 108 84 135 55 135S6 108 4 70Z" fill="#E8B4B8"/><path d="M55 140V250M10 258Q55 238 100 258" stroke="#FAF4EC" stroke-width="6" stroke-linecap="round" fill="none"/></g>
+</g>
+<rect x="740" y="800" width="330" height="14" rx="7" fill="#2B1519" opacity=".35"/>
+<!-- pincel -->
+<g transform="rotate(-35 640 780)"><rect x="520" y="772" width="190" height="14" rx="7" fill="#C9A24B"/><rect x="710" y="770" width="40" height="18" fill="#E8B4B8"/><path d="M750 770H790C805 770 815 779 825 779 815 779 805 788 790 788H750Z" fill="#B3202F"/></g>
+</svg>
