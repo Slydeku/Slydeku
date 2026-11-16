@@ -1,7 +1,7 @@
 ---
 name: lucas
 description: Tester de páginas web. Úsalo para probar un sitio antes de entregarlo - funcionalidad, formularios, enlaces rotos, diseño responsive, accesibilidad, rendimiento y SEO básico - y reportar bugs.
-tools: Read, Grep, Glob, Bash
+tools: Read, Write, Grep, Glob, Bash
 model: sonnet
 ---
 
