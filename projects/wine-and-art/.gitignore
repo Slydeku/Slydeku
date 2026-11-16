@@ -1,0 +1,16 @@
+# Dependencias
+node_modules/
+
+# Secretos (backend/.env.example sí se sube)
+.env
+.env.*
+!.env.example
+
+# Base de datos SQLite local (y sus archivos WAL/SHM)
+*.db
+*.db-*
+backend/data/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db

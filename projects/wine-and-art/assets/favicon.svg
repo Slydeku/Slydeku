@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><title>Wine and Art</title>
+<rect width="64" height="64" rx="14" fill="#6B1A2E"/>
+<path d="M19 12H45C45 30 40 40 32 40C24 40 19 30 19 12Z" fill="#B3202F" stroke="#FAF4EC" stroke-width="3" stroke-linejoin="round"/>
+<path d="M32 40V53M23 55Q32 51 41 55" stroke="#FAF4EC" stroke-width="3" stroke-linecap="round" fill="none"/>
+<path d="M50 10C50 10 46 15 46 18A4 4 0 0 0 54 18C54 15 50 10 50 10Z" fill="#C9A24B"/>
+</svg>

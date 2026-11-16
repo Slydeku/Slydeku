@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es-PR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wine and Art | Sesiones de pintura con vino en Puerto Rico</title>
+  <meta name="description" content="Sesiones de pintura guiadas con vino en Puerto Rico. Elige tu paquete, reserva en línea y llévate tu obra. Solo mayores de 21 años.">
+  <meta name="theme-color" content="#6B1A2E">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_PR">
+  <meta property="og:title" content="Wine and Art | Pinta, brinda y crea algo tuyo">
+  <meta property="og:description" content="Sesiones de pintura guiadas con vino en Puerto Rico. Reserva tu sesión en menos de 2 minutos.">
+  <!-- TODO: reemplazar dominio https://wineandart.example por el dominio real (og:url, og:image y canonical) -->
+  <link rel="canonical" href="https://wineandart.example/">
+  <meta property="og:url" content="https://wineandart.example/">
+  <meta property="og:image" content="https://wineandart.example/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wine and Art: sesiones de pintura con vino en Puerto Rico">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vino: { DEFAULT: '#8B1E2D', 700: '#6B1A2E', 900: '#4A0E1C' },
+            rojo: '#B3202F',
+            rose: '#E8B4B8',
+            oro: { DEFAULT: '#C9A24B', claro: '#E0C27A' },
+            crema: '#FAF4EC',
+            arena: '#F2E6DA',
+            tinta: { DEFAULT: '#2B1519', suave: '#5E4A4E' },
+            error: '#A4122B',
+            ok: '#1F6B3A'
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['Lato', 'Arial', 'sans-serif']
+          },
+          boxShadow: {
+            tarjeta: '0 2px 8px rgba(43,21,25,.08)',
+            elevada: '0 8px 24px rgba(43,21,25,.14)'
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="bg-crema text-tinta font-sans text-[17px] md:text-lg leading-relaxed antialiased">
+
+<!-- Sprite de íconos (heredan currentColor) -->
+<svg xmlns="http://www.w3.org/2000/svg" class="hidden" aria-hidden="true" focusable="false">
+  <symbol id="i-calendario" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M8 3v4M16 3v4M3.5 10h17M8 14h2M14 14h2M8 17h2"/></symbol>
+  <symbol id="i-copa" viewBox="0 0 24 24"><path d="M7 3h10c0 5-1.5 9-5 9S7 8 7 3Z"/><path d="M12 12v8M8 21h8M7.5 7.5h9"/></symbol>
+  <symbol id="i-paleta" viewBox="0 0 24 24"><path d="M12 3C7 3 3 7 3 12s4 9 8 9c1.7 0 2-1.2 1.4-2.2-.7-1.2 0-2.8 1.6-2.8H17c2.2 0 4-1.6 4-4 0-4.4-4-8-9-8Z"/><circle cx="7.5" cy="12" r="1"/><circle cx="10" cy="7.5" r="1"/><circle cx="15" cy="7.5" r="1"/></symbol>
+  <symbol id="i-pincel" viewBox="0 0 24 24"><path d="M20 4 11 13"/><path d="M9.5 11.5 12.5 14.5C12.5 18 10 20.5 5 20.5c1-1.5 0-2.5 0-4 0-2.8 2-5 4.5-5Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-alerta" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.01"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-cerrar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-izq" viewBox="0 0 24 24"><path d="m14.5 5-7 7 7 7"/></symbol>
+  <symbol id="i-der" viewBox="0 0 24 24"><path d="m9.5 5 7 7-7 7"/></symbol>
+  <symbol id="i-mas" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-menos" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+  <symbol id="i-reloj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-personas" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6M16 4.8a3.5 3.5 0 0 1 0 6.4M18 14.4c2 .7 3.5 2.6 3.5 5.6"/></symbol>
+</svg>
+
+<a href="#contenido" class="saltar">Saltar al contenido</a>
+
+<!-- ============ HEADER ============ -->
+<header class="sticky top-0 z-40 bg-crema/95 backdrop-blur border-b border-arena h-16">
+  <div class="contenedor h-full flex items-center justify-between gap-3">
+    <a href="#inicio" class="shrink-0 block" aria-label="Wine &amp; Art, ir al inicio">
+      <!-- Logo inline para que Playfair/Lato apliquen al texto -->
+      <svg viewBox="0 0 380 100" class="h-10 w-auto" role="img" aria-label="Wine and Art, pintura, vino, Puerto Rico">
+        <g>
+          <path d="M78 10 L58 56" stroke="#C9A24B" stroke-width="5" stroke-linecap="round" fill="none"/>
+          <path d="M56 52 L62 58 L53 66 C49 68 46 65 47 61 Z" fill="#C9A24B"/>
+          <path d="M28 14H68C68 42 60 60 48 60C36 60 28 42 28 14Z" fill="none" stroke="#6B1A2E" stroke-width="3.5" stroke-linejoin="round"/>
+          <path d="M30.5 30Q39 25 48 30T65.5 30C64.5 46 58 57.5 48 57.5C38 57.5 31.5 46 30.5 30Z" fill="#8B1E2D"/>
+          <path d="M48 60V86M34 90Q48 83 62 90" stroke="#6B1A2E" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <path d="M82 62C82 62 75 71 75 76A7 7 0 0 0 89 76C89 71 82 62 82 62Z" fill="#B3202F"/>
+        </g>
+        <text x="104" y="58" font-family="'Playfair Display',Georgia,serif" font-size="42" font-weight="700" fill="#4A0E1C">Wine <tspan fill="#C9A24B" font-style="italic" font-weight="500">&amp;</tspan> Art</text>
+        <text x="106" y="80" font-family="Lato,Arial,sans-serif" font-size="11" letter-spacing="3" fill="#6B1A2E">PINTURA · VINO · PUERTO RICO</text>
+      </svg>
+    </a>
+
+    <nav aria-label="Principal" class="hidden lg:block">
+      <ul class="flex items-center gap-7 font-bold text-base">
+        <li><a class="nav-link" href="#paquetes">Paquetes</a></li>
+        <li><a class="nav-link" href="#como-funciona">Cómo funciona</a></li>
+        <li><a class="nav-link" href="#galeria">Galería</a></li>
+        <li><a class="nav-link" href="#faq">FAQ</a></li>
+        <li><a class="nav-link" href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href="#reservar" class="btn btn-primario !min-h-[44px] !px-5">Reservar</a>
+      <button type="button" id="btn-menu" class="lg:hidden btn-icono" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir menú">
+        <svg class="ico w-7 h-7"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Menú móvil -->
+<div id="menu-movil" class="fixed inset-0 z-50 bg-crema hidden flex-col" role="dialog" aria-modal="true" aria-label="Menú">
+  <div class="h-16 px-4 flex items-center justify-between border-b border-arena">
+    <span class="font-serif font-bold text-xl text-vino-900">Menú</span>
+    <button type="button" id="btn-cerrar-menu" class="btn-icono" aria-label="Cerrar menú">
+      <svg class="ico w-7 h-7"><use href="#i-cerrar"/></svg>
+    </button>
+  </div>
+  <nav aria-label="Menú móvil" class="p-4">
+    <ul>
+      <li><a class="menu-item" href="#paquetes">Paquetes</a></li>
+      <li><a class="menu-item" href="#como-funciona">Cómo funciona</a></li>
+      <li><a class="menu-item" href="#galeria">Galería</a></li>
+      <li><a class="menu-item" href="#faq">FAQ</a></li>
+      <li><a class="menu-item" href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="#reservar" class="btn btn-primario w-full mt-6">Reservar ahora</a>
+  </nav>
+</div>
+
+<main id="contenido" tabindex="-1">
+
+<!-- ============ HERO ============ -->
+<section id="inicio" class="seccion pt-10 md:pt-16 pb-12 md:pb-20" aria-labelledby="h-hero">
+  <div class="contenedor grid lg:grid-cols-2 gap-10 items-center">
+    <div>
+      <p class="inline-block bg-rose text-tinta font-bold text-[15px] rounded-full px-4 py-1.5 mb-5">Pintura + vino en Puerto Rico</p>
+      <h1 id="h-hero" class="font-serif font-bold text-vino-900 text-[36px] md:text-[56px] leading-[1.1]">Pinta, brinda y crea algo tuyo</h1>
+      <p class="mt-5 text-tinta-suave max-w-xl">Sesiones de pintura guiadas con vino. No necesitas saber pintar, solo ganas de pasarla bien.</p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-3">
+        <a href="#reservar" class="btn btn-primario">Reservar ahora</a>
+        <a href="#paquetes" class="btn btn-secundario">Ver paquetes</a>
+      </div>
+      <p class="mt-5 text-[15px] text-tinta-suave">Solo para mayores de 21 años · Materiales incluidos</p>
+    </div>
+    <div class="rounded-2xl overflow-hidden shadow-elevada border border-arena aspect-[16/10] lg:aspect-[16/11]">
+      <img src="assets/hero.svg" width="1600" height="900" class="w-full h-full object-cover" alt="Caballete con un lienzo y copas de vino rodeadas de manchas de pintura">
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAQUETES ============ -->
+<section id="paquetes" class="seccion bg-arena py-16 md:py-24" aria-labelledby="h-paquetes">
+  <div class="contenedor">
+    <h2 id="h-paquetes" class="h2">Elige tu experiencia</h2>
+    <p class="mt-3 text-tinta-suave max-w-2xl">Todos los paquetes incluyen lienzo, pinceles, delantal y un instructor que te guía paso a paso.</p>
+    <div id="lista-paquetes" class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4 md:gap-6" aria-live="polite">
+      <p class="text-tinta-suave">Cargando paquetes…</p>
+    </div>
+    <p class="mt-8 text-[15px] text-tinta-suave">Precios sujetos a confirmación. Los precios no incluyen impuestos ni propina.</p>
+  </div>
+</section>
+
+<!-- ============ CÓMO FUNCIONA ============ -->
+<section id="como-funciona" class="seccion py-16 md:py-24" aria-labelledby="h-como">
+  <div class="contenedor">
+    <h2 id="h-como" class="h2">Así de fácil</h2>
+    <ol class="mt-10 grid gap-8 md:grid-cols-4 md:gap-6 pasos">
+      <li class="paso">
+        <span class="paso-ico"><svg class="ico w-8 h-8"><use href="#i-calendario"/></svg></span>
+        <div>
+          <p class="paso-num">Paso 1</p>
+          <h3 class="h3">Reserva tu fecha</h3>
+          <p class="text-tinta-suave mt-1">Elige paquete, día y hora. Te confirmamos por correo.</p>
+        </div>
+      </li>
+      <li class="paso">
+        <span class="paso-ico"><svg class="ico w-8 h-8"><use href="#i-paleta"/></svg></span>
+        <div>
+          <p class="paso-num">Paso 2</p>
+          <h3 class="h3">Llega y escoge tu estilo</h3>
+          <p class="text-tinta-suave mt-1">Te recibimos con tu lienzo y tu paleta de colores.</p>
+        </div>
+      </li>
+      <li class="paso">
+        <span class="paso-ico"><svg class="ico w-8 h-8"><use href="#i-pincel"/></svg></span>
+        <div>
+          <p class="paso-num">Paso 3</p>
+          <h3 class="h3">Pinta con guía</h3>
+          <p class="text-tinta-suave mt-1">Paso a paso, sin presión. Todos terminan con una obra.</p>
+        </div>
+      </li>
+      <li class="paso">
+        <span class="paso-ico"><svg class="ico w-8 h-8"><use href="#i-copa"/></svg></span>
+        <div>
+          <p class="paso-num">Paso 4</p>
+          <h3 class="h3">Brinda y llévate tu obra</h3>
+          <p class="text-tinta-suave mt-1">Disfruta tu vino y llévate tu creación a casa.</p>
+        </div>
+      </li>
+    </ol>
+    <div class="mt-10"><a href="#reservar" class="btn btn-primario w-full sm:w-auto">Reservar mi sesión</a></div>
+  </div>
+</section>
+
+<!-- ============ GALERÍA ============ -->
+<section id="galeria" class="seccion bg-white py-16 md:py-24" aria-labelledby="h-galeria">
+  <div class="contenedor">
+    <h2 id="h-galeria" class="h2">Obras de nuestras sesiones</h2>
+    <p class="mt-3 text-tinta-suave">Cada lienzo es único. El tuyo también lo será.</p>
+    <ul class="mt-10 grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-6" id="galeria-grid">
+      <li><button type="button" class="miniatura" data-i="0"><img loading="lazy" src="assets/galeria/obra-1.svg" width="800" height="600" alt="Obra 1: pintura abstracta en tonos vino y rojo"><span class="sr-only">Ampliar obra 1</span></button></li>
+      <li><button type="button" class="miniatura" data-i="1"><img loading="lazy" src="assets/galeria/obra-2.svg" width="800" height="600" alt="Obra 2: pintura de paisaje en tonos cálidos"><span class="sr-only">Ampliar obra 2</span></button></li>
+      <li><button type="button" class="miniatura" data-i="2"><img loading="lazy" src="assets/galeria/obra-3.svg" width="800" height="600" alt="Obra 3: pintura de atardecer"><span class="sr-only">Ampliar obra 3</span></button></li>
+      <li><button type="button" class="miniatura" data-i="3"><img loading="lazy" src="assets/galeria/obra-4.svg" width="800" height="600" alt="Obra 4: pintura de flores"><span class="sr-only">Ampliar obra 4</span></button></li>
+      <li><button type="button" class="miniatura" data-i="4"><img loading="lazy" src="assets/galeria/obra-5.svg" width="800" height="600" alt="Obra 5: pintura abstracta de formas orgánicas"><span class="sr-only">Ampliar obra 5</span></button></li>
+      <li><button type="button" class="miniatura" data-i="5"><img loading="lazy" src="assets/galeria/obra-6.svg" width="800" height="600" alt="Obra 6: pintura de paisaje tropical"><span class="sr-only">Ampliar obra 6</span></button></li>
+    </ul>
+    <p class="mt-8">Obras creadas por nuestros invitados. Tú serás el próximo. ¿Quieres ver más? <a class="enlace" href="#contacto">Síguenos en Instagram</a>.</p>
+  </div>
+</section>
+
+<!-- ============ RESERVAR ============ -->
+<section id="reservar" class="seccion bg-arena py-16 md:py-24" aria-labelledby="h-reservar">
+  <div class="contenedor">
+    <h2 id="h-reservar" class="h2">Reserva tu sesión</h2>
+    <p class="mt-3 text-tinta-suave">Completa el formulario y te confirmamos por correo. Toma menos de 2 minutos.</p>
+
+    <div class="mt-10 grid lg:grid-cols-12 gap-8 items-start">
+      <!-- Resumen -->
+      <aside id="resumen" class="lg:col-span-5 lg:sticky lg:top-24 order-2 lg:order-1 bg-white rounded-2xl border border-arena shadow-tarjeta p-6" aria-labelledby="h-resumen">
+        <details id="resumen-det" class="group" open>
+          <summary class="flex items-center justify-between cursor-pointer min-h-[48px] lg:pointer-events-none">
+            <h3 id="h-resumen" class="h3">Resumen de tu reserva</h3>
+            <span class="lg:hidden text-vino font-bold text-[15px]" aria-hidden="true">Ver / ocultar</span>
+          </summary>
+          <dl class="mt-3 space-y-2 text-base" aria-live="polite">
+            <div class="flex justify-between gap-4"><dt class="text-tinta-suave">Paquete</dt><dd id="r-paquete" class="font-bold text-right">—</dd></div>
+            <div class="flex justify-between gap-4"><dt class="text-tinta-suave">Fecha</dt><dd id="r-fecha" class="font-bold text-right">—</dd></div>
+            <div class="flex justify-between gap-4"><dt class="text-tinta-suave">Hora</dt><dd id="r-hora" class="font-bold text-right">—</dd></div>
+            <div class="flex justify-between gap-4"><dt class="text-tinta-suave">Personas</dt><dd id="r-personas" class="font-bold text-right">—</dd></div>
+            <div class="flex justify-between gap-4"><dt class="text-tinta-suave">Precio</dt><dd id="r-precio" class="font-bold text-right">—</dd></div>
+            <div class="flex justify-between gap-4 border-t border-arena pt-3 mt-3 items-baseline"><dt class="font-bold">Total estimado</dt><dd id="r-total" class="font-serif font-bold text-rojo text-3xl">—</dd></div>
+          </dl>
+          <p class="mt-3 text-[15px] text-tinta-suave">Pagos por definir. Te confirmamos los detalles por correo.</p>
+        </details>
+      </aside>
+
+      <!-- Formulario -->
+      <div class="lg:col-span-7 order-1 lg:order-2 bg-white rounded-2xl border border-arena shadow-tarjeta p-5 md:p-8" id="contenedor-form">
+        <form id="form-reserva" novalidate>
+          <div id="resumen-errores" class="hidden mb-6 rounded-xl border-2 border-error bg-rose/30 p-4" role="alert" tabindex="-1"></div>
+          <div id="error-general" class="hidden mb-6 rounded-xl border-2 border-error bg-rose/30 p-4" role="alert"></div>
+          <p class="text-[15px] text-tinta-suave mb-6">Todos los campos son obligatorios salvo Notas.</p>
+
+          <fieldset class="grupo">
+            <legend class="h3 mb-4">1. Tu experiencia</legend>
+
+            <div class="campo">
+              <label for="paquete">Paquete</label>
+              <select id="paquete" name="paquete" class="input" aria-describedby="e-paquete" required>
+                <option value="">Elige un paquete</option>
+              </select>
+              <p id="e-paquete" class="error" hidden></p>
+            </div>
+
+            <div class="campo">
+              <label for="fecha">Fecha</label>
+              <input type="date" id="fecha" name="fecha" class="input" aria-describedby="a-fecha e-fecha" required>
+              <p id="a-fecha" class="ayuda">Sesiones de jueves a domingo.</p>
+              <p id="e-fecha" class="error" hidden></p>
+            </div>
+
+            <div class="campo">
+              <span class="etiqueta" id="l-hora">Hora</span>
+              <div id="horas" role="radiogroup" aria-labelledby="l-hora" aria-describedby="a-hora e-hora" class="flex flex-wrap gap-2"></div>
+              <p id="a-hora" class="ayuda">Elige primero la fecha para ver las horas disponibles.</p>
+              <p id="e-hora" class="error" hidden></p>
+            </div>
+
+            <div class="campo">
+              <label for="personas">Cantidad de personas</label>
+              <div class="flex items-center gap-2">
+                <button type="button" id="p-menos" class="btn-paso" aria-label="Una persona menos"><svg class="ico w-6 h-6"><use href="#i-menos"/></svg></button>
+                <input type="text" inputmode="numeric" pattern="[0-9]*" id="personas" name="personas" value="2" class="input !w-20 text-center" aria-describedby="a-personas e-personas" required>
+                <button type="button" id="p-mas" class="btn-paso" aria-label="Una persona más"><svg class="ico w-6 h-6"><use href="#i-mas"/></svg></button>
+              </div>
+              <p id="a-personas" class="ayuda">Elige un paquete para ver los límites.</p>
+              <p id="e-personas" class="error" hidden></p>
+              <p id="aviso-personas" class="sr-only" role="status"></p>
+            </div>
+          </fieldset>
+
+          <fieldset class="grupo">
+            <legend class="h3 mb-4">2. Tus datos</legend>
+            <div class="campo">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" class="input" autocomplete="name" maxlength="80" aria-describedby="e-nombre" required>
+              <p id="e-nombre" class="error" hidden></p>
+            </div>
+            <div class="campo">
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" name="email" class="input" autocomplete="email" aria-describedby="e-email" required>
+              <p id="e-email" class="error" hidden></p>
+            </div>
+            <div class="campo">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" class="input" autocomplete="tel" inputmode="tel" placeholder="787-555-0123" aria-describedby="e-telefono" required>
+              <p id="e-telefono" class="error" hidden></p>
+            </div>
+            <div class="campo">
+              <label for="notas">Notas (opcional)</label>
+              <textarea id="notas" name="notas" rows="3" class="input !h-auto py-3" maxlength="500" placeholder="¿Alergias, una ocasión especial o algo que debamos saber?" aria-describedby="c-notas e-notas"></textarea>
+              <p id="c-notas" class="ayuda text-right"><span id="n-notas">0</span>/500</p>
+              <p id="e-notas" class="error" hidden></p>
+            </div>
+          </fieldset>
+
+          <fieldset class="grupo">
+            <legend class="h3 mb-4">3. Confirmar</legend>
+            <div class="campo">
+              <label for="mayor" class="flex items-start gap-3 min-h-[48px] cursor-pointer font-normal">
+                <input type="checkbox" id="mayor" name="mayor_de_edad" class="check mt-0.5" aria-describedby="a-mayor e-mayor" required>
+                <span>Confirmo que todas las personas que asistirán tienen 21 años o más.</span>
+              </label>
+              <p id="a-mayor" class="ayuda">Se pedirá identificación al llegar.</p>
+              <p id="e-mayor" class="error" hidden></p>
+            </div>
+            <button type="submit" id="btn-enviar" class="btn btn-primario w-full mt-2">
+              <span id="txt-enviar">Confirmar reserva</span>
+            </button>
+          </fieldset>
+        </form>
+
+        <!-- Éxito -->
+        <div id="exito" class="hidden" aria-live="polite">
+          <div class="flex items-center gap-3 text-ok">
+            <svg class="ico w-10 h-10" aria-hidden="true"><use href="#i-check"/></svg>
+            <span class="font-bold">Reserva recibida</span>
+          </div>
+          <h3 id="exito-titulo" tabindex="-1" class="font-serif font-bold text-vino-900 text-[26px] md:text-3xl mt-3"></h3>
+          <p id="exito-texto" class="mt-3 text-tinta-suave"></p>
+          <dl class="mt-6 rounded-xl bg-crema border border-arena p-5 space-y-2 text-base">
+            <div class="flex justify-between gap-4"><dt class="text-tinta-suave">Paquete</dt><dd id="x-paquete" class="font-bold text-right"></dd></div>
+            <div class="flex justify-between gap-4"><dt class="text-tinta-suave">Fecha</dt><dd id="x-fecha" class="font-bold text-right"></dd></div>
+            <div class="flex justify-between gap-4"><dt class="text-tinta-suave">Hora</dt><dd id="x-hora" class="font-bold text-right"></dd></div>
+            <div class="flex justify-between gap-4"><dt class="text-tinta-suave">Personas</dt><dd id="x-personas" class="font-bold text-right"></dd></div>
+            <div class="flex justify-between gap-4"><dt class="text-tinta-suave">Total estimado</dt><dd id="x-total" class="font-bold text-right"></dd></div>
+            <div class="flex justify-between gap-4 border-t border-arena pt-3"><dt class="text-tinta-suave">Código de reserva</dt><dd id="x-codigo" class="font-bold text-right text-vino text-xl tracking-wider"></dd></div>
+          </dl>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <button type="button" id="otra-reserva" class="btn btn-primario">Hacer otra reserva</button>
+            <a href="#inicio" id="volver-inicio" class="btn btn-secundario">Volver al inicio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="seccion py-16 md:py-24" aria-labelledby="h-faq">
+  <div class="contenedor">
+    <h2 id="h-faq" class="h2">Preguntas frecuentes</h2>
+    <div class="mt-8 max-w-[760px]" id="acordeon">
+      <h3 class="faq-h"><button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-1" id="faq-b1"><span>¿Necesito saber pintar?</span><svg class="ico w-6 h-6 shrink-0"><use href="#i-mas"/></svg></button></h3>
+      <div id="faq-1" role="region" aria-labelledby="faq-b1" class="faq-panel" hidden><p>Para nada. Un instructor te guía paso a paso y todos terminan con una obra.</p></div>
+
+      <h3 class="faq-h"><button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-2" id="faq-b2"><span>¿Hay que tener 21 años?</span><svg class="ico w-6 h-6 shrink-0"><use href="#i-mas"/></svg></button></h3>
+      <div id="faq-2" role="region" aria-labelledby="faq-b2" class="faq-panel" hidden><p>Sí. Por el vino, todas las personas deben tener 21 años o más y pedimos identificación al llegar.</p></div>
+
+      <h3 class="faq-h"><button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-3" id="faq-b3"><span>¿Qué incluye el precio?</span><svg class="ico w-6 h-6 shrink-0"><use href="#i-mas"/></svg></button></h3>
+      <div id="faq-3" role="region" aria-labelledby="faq-b3" class="faq-panel" hidden><p>Lienzo, pinceles, pintura, delantal, guía del instructor y el vino o la picadera según el paquete que elijas.</p></div>
+
+      <h3 class="faq-h"><button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-4" id="faq-b4"><span>¿Cuántas personas pueden venir?</span><svg class="ico w-6 h-6 shrink-0"><use href="#i-mas"/></svg></button></h3>
+      <div id="faq-4" role="region" aria-labelledby="faq-b4" class="faq-panel" hidden><p>Depende del paquete: Pareja Artística es para 2 y Evento Privado, de 8 a 20. Revisa el mínimo y el máximo en cada tarjeta.</p></div>
+
+      <h3 class="faq-h"><button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-5" id="faq-b5"><span>¿Puedo cambiar o cancelar mi reserva?</span><svg class="ico w-6 h-6 shrink-0"><use href="#i-mas"/></svg></button></h3>
+      <div id="faq-5" role="region" aria-labelledby="faq-b5" class="faq-panel" hidden><p>Escríbenos con anticipación y buscamos otra fecha.</p></div>
+
+      <h3 class="faq-h"><button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-6" id="faq-b6"><span>¿Cómo se paga?</span><svg class="ico w-6 h-6 shrink-0"><use href="#i-mas"/></svg></button></h3>
+      <div id="faq-6" role="region" aria-labelledby="faq-b6" class="faq-panel" hidden><p>Te confirmamos los métodos de pago por correo cuando recibamos tu reserva.</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ CONTACTO / FOOTER ============ -->
+<footer id="contacto" class="seccion bg-vino-900 text-crema pt-16 pb-8">
+  <div class="contenedor">
+    <div class="grid md:grid-cols-3 gap-10">
+      <div>
+        <svg viewBox="0 0 380 100" class="h-12 w-auto" role="img" aria-label="Wine and Art">
+          <path d="M78 10 L58 56" stroke="#E0C27A" stroke-width="5" stroke-linecap="round" fill="none"/>
+          <path d="M56 52 L62 58 L53 66 C49 68 46 65 47 61 Z" fill="#E0C27A"/>
+          <path d="M28 14H68C68 42 60 60 48 60C36 60 28 42 28 14Z" fill="none" stroke="#FAF4EC" stroke-width="3.5" stroke-linejoin="round"/>
+          <path d="M30.5 30Q39 25 48 30T65.5 30C64.5 46 58 57.5 48 57.5C38 57.5 31.5 46 30.5 30Z" fill="#E8B4B8"/>
+          <path d="M48 60V86M34 90Q48 83 62 90" stroke="#FAF4EC" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <path d="M82 62C82 62 75 71 75 76A7 7 0 0 0 89 76C89 71 82 62 82 62Z" fill="#E8B4B8"/>
+          <text x="104" y="58" font-family="'Playfair Display',Georgia,serif" font-size="42" font-weight="700" fill="#FAF4EC">Wine <tspan fill="#E0C27A" font-style="italic" font-weight="500">&amp;</tspan> Art</text>
+          <text x="106" y="80" font-family="Lato,Arial,sans-serif" font-size="11" letter-spacing="3" fill="#E8B4B8">PINTURA · VINO · PUERTO RICO</text>
+        </svg>
+        <p class="mt-4 text-rose">Pintura + vino en Puerto Rico</p>
+        <p class="mt-3 flex flex-wrap items-center gap-x-1">Síguenos: <a class="enlace-claro enlace-tactil" href="#contacto">Instagram</a> <span aria-hidden="true">·</span> <a class="enlace-claro enlace-tactil" href="#contacto">Facebook</a></p>
+      </div>
+      <div>
+        <h2 class="font-serif font-bold text-2xl">Contacto</h2>
+        <p class="mt-2 text-rose">¿Dudas? Escríbenos y te ayudamos.</p>
+        <ul class="mt-3 space-y-1">
+          <li class="py-2">Dirección: [por confirmar]</li>
+          <li><a class="enlace-claro inline-flex items-center min-h-[48px]" href="mailto:info@wineandart.example">Correo: [por confirmar]</a></li>
+          <li><a class="enlace-claro inline-flex items-center min-h-[48px]" href="tel:+17875550123">Teléfono / WhatsApp: [por confirmar]</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="font-serif font-bold text-2xl">Horario</h2>
+        <p class="mt-2">Jueves a domingo, según la hora que elijas al reservar.</p>
+        <a href="#reservar" class="btn btn-claro mt-5">Reservar ahora</a>
+      </div>
+    </div>
+    <p class="mt-12 pt-6 border-t border-vino-700 text-[15px] text-rose">© 2026 Wine and Art. Solo para mayores de 21 años. Disfruta con responsabilidad.</p>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div id="lightbox" class="fixed inset-0 z-[60] hidden items-center justify-center bg-vino-900/95 p-4" role="dialog" aria-modal="true" aria-label="Galería ampliada">
+  <button type="button" id="lb-cerrar" class="lb-btn absolute top-4 right-4" aria-label="Cerrar"><svg class="ico w-7 h-7"><use href="#i-cerrar"/></svg></button>
+  <button type="button" id="lb-ant" class="lb-btn absolute left-2 md:left-6 top-1/2 -translate-y-1/2" aria-label="Obra anterior"><svg class="ico w-7 h-7"><use href="#i-izq"/></svg></button>
+  <figure class="max-w-4xl w-full px-14 md:px-20">
+    <img id="lb-img" src="" alt="" class="w-full max-h-[80vh] object-contain rounded-xl bg-crema">
+    <figcaption id="lb-cap" class="text-crema text-center mt-3 text-[15px]"></figcaption>
+  </figure>
+  <button type="button" id="lb-sig" class="lb-btn absolute right-2 md:right-6 top-1/2 -translate-y-1/2" aria-label="Obra siguiente"><svg class="ico w-7 h-7"><use href="#i-der"/></svg></button>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
